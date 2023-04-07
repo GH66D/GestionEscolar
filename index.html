@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      width: 100%;
+      height: 100vh;
+      color: #fff;
+      background: linear-gradient(45deg, red, blue, green, black);
+      background-size: 400% 400%;
+      position: relative;
+      animation: cambiar 20s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 10px;
+      border: solid 3px #fff;
+      border-radius: 30px;
+      position: absolute;
+      top: 57%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2rem 3rem;
+    }
+
+    @keyframes cambiar {
+      0% {
+        background-position: 0 100%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0 50%;
+      }
+    }
+
+    .container {
+      text-align: center
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+    }
+
+    .center {
+      display: inline-block
+    }
+
+    .b1 {
+      text-decoration: none;
+      padding: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-weight: 100;
+      font-size: 20px;
+      color: white;
+      background-color: #4437ff;
+    }
+
+    .b1:hover {
+      color: #9b0e0e;
+      background-color: #bc6355;
+      text-decoration: none;
+    }
+
+    .b2 {
+      text-decoration: none;
+      padding: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-weight: 100;
+      font-size: 20px;
+      color: white;
+      background-color: #9b0e0e;
+    }
+
+    .b2:hover {
+      color: #9b0e0e;
+      background-color: #bc6355;
+      text-decoration: none;
+    }
+
+    .b3 {
+      text-decoration: none;
+      padding: 20px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-weight: 100;
+      font-size: 20px;
+      color: white;
+      background-color: #170455;
+    }
+
+    .b3:hover {
+      color: #9b0e0e;
+      background-color: #bc6355;
+      text-decoration: none;
+    }
+  </style>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Index</title>
+</head>
+
+<body>
+  <section>
+
+    <h1>Bienvenido</h1><br>
+    <div align="center">
+      <img src="recursos/logoIPN.png" alt="escudo" title="ESCOM" width="9.5%" height="20%">
+      <img src="recursos/logoESCOM.png" alt="escudo" title="ESCOM" width="10%" height="20%">
+
+    </div>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm" style="margin-top:400px">
+          <a href="ejemplo form.html">
+            <button type="button" class="b1">Registro de alumno</button>
+          </a>
+        </div>
+        <div class="col-sm" style="margin-top:400px">
+          <form action="RecuperarPDF.php" method="post">
+            <input type="text" name="boleta" placeholder="Boleta">
+            <input type="submit" value="Recuperar PDF">
+          </form>
+        </div>
+        <div class="col-sm" style="margin-top:400px">
+          <a href="login.php">
+            <button type="button" class="b3">Inicio de sesión</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

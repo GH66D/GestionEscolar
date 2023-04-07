@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function validateFields() {
+            var boleta = document.getElementById("boleta").value;
+            var nombre = document.getElementById("nombre").value;
+            var paterno = document.getElementById("paterno").value;
+            var materno = document.getElementById("materno").value;
+            var nacimiento = document.getElementById("nacimiento").value;
+            var genero = document.querySelector('input[name="genero"]:checked');
+            var dis = document.querySelector('input[name="dis"]:checked');
+            var curp = document.getElementById("curp").value;
+            var calle = document.getElementById("calle").value;
+            var colonia = document.getElementById("colonia").value;
+            var alcaldia = document.getElementById("alcaldia").value;
+            var cp = document.getElementById("cp").value;
+            var tel = document.getElementById("tel").value;
+            var correo = document.getElementById("correo").value;
+            var procedencia = document.getElementById("procedencia").value;
+            var nombresc = document.getElementById("nombresc").value;
+            var nombreedo = document.getElementById("nombreedo").value;
+            var promedio = document.getElementById("promedio").value;
+            var opcion = document.querySelector('input[name="opcion"]:checked');
+            var boletaRegex = /^(PE\d{8}|PP\d{8}|\d{10})$/;
+            var nombreRegex = /^[a-zA-Z]+$/;
+            var curpRegex = /^[a-zA-Z]{4}[0-9]{6}[a-zA-Z]{6}[0-9|a-z|A-Z]{2}$/;
+            var telRegex = /^[0-9]{10}$/;
+            var correoRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            var promedioRegex = /^[0-9](\.[0-9]{1,2})?$/;
+            if (!boletaRegex.test(boleta)) {
+                alert("Invalid boleta number");
+                console.log("gerg");
+                // return false;
+            }
+            if (!nombreRegex.test(nombre)) {
+                alert("Invalid name");
+                // return false;
+            }
+            if (!nombreRegex.test(paterno)) {
+                alert("Invalid paterno name");
+                // return false;
+            }
+            if (!nombreRegex.test(materno)) {
+                alert("Invalid materno name");
+                // return false;
+            }
+            if (!curpRegex.test(curp)) {
+                alert("Invalid CURP");
+                // return false;
+            }
+            if (!telRegex.test(tel)) {
+                alert("Invalid telephone number");
+                // return false;
+            }
+            if (!correoRegex.test(correo)) {
+                alert("Invalid email address");
+                // return false;
+            }
+            if (!promedioRegex.test(promedio)) {
+                alert("Invalid average");
+                // return false;
+            }
+            // showInput();
+        }
+        function showInput() {
+            validateFields();
+            document.getElementById('boletaResult').innerHTML = document.getElementById("boleta").value;
+            document.getElementById('nombreResult').innerHTML = document.getElementById("nombre").value;
+            document.getElementById('paternoResult').innerHTML = document.getElementById("paterno").value;
+            document.getElementById('maternoResult').innerHTML = document.getElementById("materno").value;
+            document.getElementById('nacimientoResult').innerHTML = document.getElementById("nacimiento").value;
+            var genero = document.querySelector('input[name="genero"]:checked');
+            if (genero) {
+                document.getElementById('generoResult').innerHTML = genero.value;
+            }
+            var dis = document.querySelector('input[name="dis"]:checked');
+            if (dis) {
+                document.getElementById('disResult').innerHTML = dis.value;
+            }
+            document.getElementById('curpResult').innerHTML = document.getElementById("curp").value;
+            document.getElementById('calleResult').innerHTML = document.getElementById("calle").value;
+            document.getElementById('coloniaResult').innerHTML = document.getElementById("colonia").value;
+            document.getElementById('alcaldiaResult').innerHTML = document.getElementById("alcaldia").value;
+            document.getElementById('cpResult').innerHTML = document.getElementById("cp").value;
+            document.getElementById('telResult').innerHTML = document.getElementById("tel").value;
+            document.getElementById('correoResult').innerHTML = document.getElementById("correo").value;
+            document.getElementById('escuelaResult').innerHTML = document.getElementById("procedencia").value;
+            document.getElementById('nombrescResult').innerHTML = document.getElementById("nombresc").value;
+            document.getElementById('estadoResult').innerHTML = document.getElementById("nombreedo").value;
+            document.getElementById('promedioResult').innerHTML = document.getElementById("promedio").value;
+            var opcion = document.querySelector('input[name="opcion"]:checked');
+            if (opcion) {
+                document.getElementById('opcionResult').innerHTML = opcion.value;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Registro de datos generales para alumnos de nuevo ingreso (enero 2023)</h1>
+    <div>
+
+        <form id="formUno" action="user.php" method="POST">
+            <h2>Registrar nuevo alumno</h2>
+
+            <fieldset>
+                <legend>IDENTIDAD</legend>
+                <label for="boleta">N° boleta:</label>
+                <input type="text" id="boleta" name="boleta"><br>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="paterno">Apellido Paterno:</label>
+                <input type="text" id="paterno" name="paterno"><br>
+                <label for="materno">Apellido Materno:</label>
+                <input type="text" id="materno" name="materno"><br>
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="nacimiento" name="nacimiento"><br>
+                <label for="genero">Género:</label>
+                <input type="radio" name="genero" id="gh" value="Hombre">Hombre
+                <input type="radio" name="genero" id="gm" value="Mujer">Mujer<br>
+                <label for="dis">Tiene alguna discapacidad:</label>
+                <input type="radio" name="dis" id="dissi" value="si">Si
+                <input type="radio" name="dis" id="disno" value="no">No<br>
+                <label for="discapacidad">Que discapacidad tienes:</label>
+                <input type="text" id="discapacidad" name="discapacidad"><br>
+                <label for="curp">CURP:</label>
+                <input type="text" id="curp" name="curp"><br>
+            </fieldset>
+            <fieldset>
+                <legend>CONTACTO</legend>
+                <label for="calle">Calle y Número:</label>
+                <input type="text" id="calle" name="calle"><br>
+                <label for="colonia">Colonia:</label>
+                <input type="text" id="colonia" name="colonia"><br>
+                <label for="alcaldia">Alcaldía:</label>
+                <select id="alcaldia" name="alcaldia">
+                    <option selected disabled="">-Seleccione una opcion-</option>
+                    <option>Alvaro Obregón</option>
+                    <option>Azcapotzalco</option>
+                    <option>Coyoacán</option>
+                    <option>Cuajimalpa</option>
+                    <option>Gustavo A. Madero</option>
+                    <option>Iztacalco</option>
+                    <option>Iztapalapa</option>
+                    <option>Magdalena Contreras</option>
+                    <option>Milpa Alta</option>
+                    <option>Tlahúac</option>
+                    <option>Tlalpan</option>
+                    <option>Xochimilco</option>
+                    <option>Benito Juárez</option>
+                    <option>Cuauhtémoc</option>
+                    <option>Miguel Hidalgo</option>
+                    <option>Venustiano Carranza</option>
+                </select><br>
+                <label for="cp">Código Postal:</label>
+                <input type="text" id="cp" name="cp"><br>
+                <label for="tel">Teléfono o celular:</label>
+                <input type="text" id="tel" name="tel"><br>
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" id="correo" name="correo"><br>
+            </fieldset>
+            <fieldset>
+                <legend>PROCEDENCIA</legend>
+                <label for="procedencia">Escuela de procedencia:</label>
+
+                <select name="escuela" id="procedencia">
+                    <option selected disabled="">-Seleccione una opcion-</option>
+                    <option>CECyT No. 1 Gonzalo Vázquez Vela</option>
+                    <option>CECyT No. 10 Carlos Vallejo Márquez</option>
+                    <option>CECyT No. 11 Wilfrido Massieu</option>
+                    <option>CECyT No. 12 José María Morelos</option>
+                    <option>CECyT No. 13 Ricardo Flores Magón</option>
+                    <option>CECyT No. 14 Luis Enrique Erro</option>
+                    <option>CECyT No. 15 Diódoro Antúnez Echegaray</option>
+                    <option>CECyT No. 16 Hidalgo</option>
+                    <option>CECyT No. 17 León, Guanajuato</option>
+                    <option>CECyT No. 18 Zacatecas</option>
+                    <option>CECyT No. 19 Leona Vicario</option>
+                    <option>CECyT No. 2 Miguel Bernard</option>
+                    <option>CECyT No. 3 Estanislao Ramírez Ruiz</option>
+                    <option>CECyT No. 4 Lázaro Cárdenas</option>
+                    <option>CECyT No. 5 Benito Juárez</option>
+                    <option>CECyT No. 6 Miguel Othón de Mendizábal</option>
+                    <option>CECyT No. 7 Cuauhtémoc</option>
+                    <option>CECyT No. 8 Narciso Bassols</option>
+                    <option>CECyT No. 9 Juan de Dios Bátiz</option>
+                    <option>CET 1 Walter Cross Buchanan</option>
+                    <option value="otro">-OTRO-</option>
+                </select>
+                <br>
+                <label for="nombresc">Nombre de la escuela:</label>
+                <input type="text" id="nombresc" name="nombresc"><br>
+                <label for="nombreedo">Entidad federativa de procedencia:</label>
+                <select name="estado" id="nombreedo">
+                    <option selected disabled="">-Seleccione una opcion-</option>
+                    <option>Aguascalientes</option>
+                    <option>Baja California </option>
+                    <option>Baja California Sur </option>
+                    <option>Campeche </option>
+                    <option>Chiapas </option>
+                    <option>Chihuahua </option>
+                    <option>Ciudad de México </option>
+                    <option>Coahuila </option>
+                    <option>Colima</option>
+                    <option>Durango</option>
+                    <option>Estado de México</option>
+                    <option>Guanajuato</option>
+                    <option>Guerrero</option>
+                    <option>Hidalgo</option>
+                    <option>Jalisco</option>
+                    <option>Michoacán</option>
+                    <option>Morelos</option>
+                    <option>Nayarit</option>
+                    <option>Nuevo León</option>
+                    <option>Oaxaca</option>
+                    <option>Puebla</option>
+                    <option>Querétaro</option>
+                    <option>Quintana Roo</option>
+                    <option>San Luis Potosí</option>
+                    <option>Sinaloa</option>
+                    <option>Sonora</option>
+                    <option>Tabasco</option>
+                    <option>Tamaulipas</option>
+                    <option>Tlaxcala</option>
+                    <option>Veracruz</option>
+                    <option>Yucatán</option>
+                    <option>Zacatecas </option>
+                </select>
+                <br>
+
+                <label for="promedio">Promedio:</label>
+                <input type="number" id="promedio" name="promedio"><br>
+                <label for="opcion">ESCOM fue tu:</label><br>
+                <input type="radio" id="opcion1" name="opcion" value="1ra opcion">1ra opcion
+                <input type="radio" id="opcion2" name="opcion" value="2da opcion">2da opcion
+                <input type="radio" id="opcion3" name="opcion" value="3ra opcion">3ra opcion
+                <br>
+
+            </fieldset>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                onclick="showInput()">Registrar</button>
+            <input type="reset" value="Limpiar">
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Datos Registrados</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Boleta: <span id='boletaResult'></span></p>
+                            <p>Nombre: <span id='nombreResult'></span></p>
+                            <p>Apellido Paterno: <span id='paternoResult'></span></p>
+                            <p>Apellido Materno: <span id='maternoResult'></span></p>
+                            <p>Fecha de nacimiento: <span id='nacimientoResult'></span></p>
+                            <p>Género: <span id='generoResult'></span></p>
+                            <p>Discapacidad: <span id='disResult'></span></p>
+                            <p>CURP: <span id='curpResult'></span></p>
+                            <p>Calle: <span id='calleResult'></span></p>
+                            <p>Colonia: <span id='coloniaResult'></span></p>
+                            <p>Alcadia: <span id='alcaldiaResult'></span></p>
+                            <p>Código Postal <span id='cpResult'></span></p>
+                            <p>Teléfono: <span id='telResult'></span></p>
+                            <p>Correo electrónico: <span id='correoResult'></span></p>
+                            <p>Escuela de Procedencia: <span id='escuelaResult'></span></p>
+                            <p>Nombre de la escuela <span id='nombrescResult'></span></p>
+                            <p>Estado: <span id='estadoResult'></span></p>
+                            <p>Promedio: <span id='promedioResult'></span></p>
+                            <p>ESCOM fue tu: <span id='opcionResult'></span></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Modificar</button>
+                            <button type="submit" class="btn btn-default">Registrar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+</body>
+
+</html>
